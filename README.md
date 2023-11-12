@@ -22,7 +22,9 @@
 
 ## 安装Git Large File Storage
 
-下载指导链接：https://git-lfs.com/，Github官方教程链接：https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
+下载指导链接：https://git-lfs.com/
+
+Github官方教程链接：https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
 
 ![Screenshot 2023-11-12 at 16.06.02](./README.assets/Screenshot 2023-11-12 at 16.06.02.png)
 
