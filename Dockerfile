@@ -12,7 +12,6 @@ FROM ubuntu:22.04
 ARG arch_name=amd64
 ARG code_server_version=4.18.0
 ARG cpptools_version=1.17.5
-ARG office_version=3.1.6
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.backup.list
 
@@ -22,7 +21,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.backup.list
 
 # 基础开发工具包
 RUN apt-get update
-RUN apt-get install -y build-essential cmake gdb cgdb python3 vim emacs locales
+RUN apt-get install -y cmake gdb python3 vim locales
 RUN apt-get install -y curl wget sudo
 RUN useradd -m csapp && \
     echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
@@ -34,11 +33,17 @@ ENV LANG=en_US.utf8 \
     LC_ALL=en_US.UTF-8
 
 # 网络包，aria2是一个轻量级的多协议命令行下载工具，它支持 HTTP、FTP、BitTorrent 等多种协议，可以用来快速、高效地下载文件。
-RUN apt-get install -y aria2
+# RUN apt-get install -y aria2
 # 我们想要下载的code-server版本的原始网站链接为：https://github.com/coder/code-server/releases/download/v4.18.0/code-server_4.18.0_amd64.deb，
 # 以下这行命令只是使得命令变得更加通用，可以在code-server更新后下载更新后的版本
-RUN aria2c https://github.com/coder/code-server/releases/download/v${code_server_version}/code-server_${code_server_version}_${arch_name}.deb && \
-    dpkg -i code-server_${code_server_version}_${arch_name}.deb
+# RUN aria2c https://github.com/coder/code-server/releases/download/v${code_server_version}/code-server_${code_server_version}_${arch_name}.deb && \
+    # dpkg -i code-server_${code_server_version}_${arch_name}.deb
+
+# 由于特殊的原因，这里不再使用上面的命令从网络中下载code_server安装包，而是复制一份已下载的到容器中进行安装
+# 复制 code-server 的 .deb 包到容器中
+COPY code-server_4.18.0_amd64.deb /tmp/code-server_4.18.0_amd64.deb
+# 安装 code-server
+RUN dpkg -i /tmp/code-server_4.18.0_amd64.deb
 
 RUN apt-get install -y net-tools
 RUN usermod -s /bin/bash csapp
