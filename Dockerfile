@@ -84,10 +84,10 @@ RUN chown csapp -R /home/csapp/.local/share/
 # RUN mv /etc/apt/sources.backup.list /etc/apt/sources.list
 # RUN apt-get update
 
-EXPOSE 8888
+EXPOSE 8765
 
 ENV PASSWORD=dase
 
 USER csapp
 
-CMD [ "code-server", "--bind-addr", "0.0.0.0:7777", "--auth", "password" ]
+CMD [ "code-server", "--bind-addr", "0.0.0.0:8765", "--auth", "password" ]
