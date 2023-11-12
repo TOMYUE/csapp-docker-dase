@@ -48,7 +48,9 @@ Github官方教程链接：https://docs.github.com/en/repositories/working-with-
 
 1. 克隆仓库到本地：`git lfs clone https://github.com/TOMYUE/csapp-docker-dase.git` 或者如果你配置过Github的ssh key的话使用`git lfs clone git@github.com:TOMYUE/csapp-docker-dase.git`，在不能科学上网的情况下，ssh也是可以很快速的使用的，没配置过的话推荐配置一下，因为仅依靠https下载是个玄学事件。同时这份clone任务不会很快能执行完，因为其中包含了一份我事先加入的cpptools-linux-1.17.5.vsix的给vscode code_server的插件，这份插件比较大所以麻烦各位耐心了。
 
-![Screenshot 2023-11-12 at 13.33.22](./README.assets/Screenshot 2023-11-12 at 13.33.22.png)![image-20231112134915270](./README.assets/image-20231112134915270.png)![image-20231112135014717](./README.assets/image-20231112135014717.png)
+   ![image-20231112173744412](./README.assets/image-20231112173744412.png)
+
+![image-20231112134915270](./README.assets/image-20231112134915270.png)![image-20231112135014717](./README.assets/image-20231112135014717.png)
 
 
 
