@@ -22,7 +22,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.backup.list
 
 # 基础开发工具包
 RUN apt-get update
-RUN apt-get install -y build-essential cmake gdb cgdb python python3 vim emacs locales
+RUN apt-get install -y build-essential cmake gdb cgdb python3 vim emacs locales
 RUN apt-get install -y curl wget sudo
 RUN useradd -m csapp && \
     echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
